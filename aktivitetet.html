@@ -1,9 +1,8 @@
-<!-- AKTIVITETET -->
 <!DOCTYPE html>
 <html lang="sq">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aktivitetet – WaveRider Boat Tours</title>
+  <title>Turet – WaveRider Boat Tours</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -13,8 +12,8 @@
       <a href="index.html" class="logo"><span class="logo-icon">⚓</span> WaveRider</a>
       <button class="burger" id="burger"><span></span><span></span><span></span></button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Kryefaqja</a></li><li><a href="turet.html">Turet</a></li>
-        <li><a href="aktivitetet.html" class="active">Aktivitetet</a></li><li><a href="galeria.html">Galeria</a></li>
+        <li><a href="index.html">Kryefaqja</a></li><li><a href="turet.html" class="active">Turet</a></li>
+        <li><a href="aktivitetet.html">Aktivitetet</a></li><li><a href="galeria.html">Galeria</a></li>
         <li><a href="cmimi.html">Çmimet</a></li><li><a href="kontakt.html">Kontakt</a></li>
         <li><a href="kontakt.html" class="btn-rezervo-nav">Rezervo</a></li>
       </ul>
@@ -37,44 +36,154 @@
       #navLinks .btn-rezervo-nav { background:linear-gradient(135deg,#d4a853,#c49340) !important; color:#0a2342 !important; padding:.7rem 2rem !important; border-radius:50px; display:inline-block !important; margin-top:.5rem; }
     }
   </style>
+
   <section class="page-hero">
-    <div class="page-hero-bg"><img src="https://images.unsplash.com/photo-1530053969600-caed2596d242?w=1600&q=80" alt="Aktivitetet"><div class="page-hero-overlay"></div></div>
-    <div class="page-hero-content"><span class="label">Në Bord & Në Det</span><h1>Aktivitetet</h1><p>Gjithçka që mund të bëni gjatë tureve tona – aventura pa kufi mbi dhe nën ujë.</p></div>
+    <div class="page-hero-bg"><img src="https://images.unsplash.com/photo-1500514966906-fe245eea9344?w=1600&q=80" alt="Turet"><div class="page-hero-overlay"></div></div>
+    <div class="page-hero-content">
+      <span class="label">Aventura Juaj Fillon Këtu</span>
+      <h1>Të Gjitha Turet</h1>
+      <p>Nga sunset cruise romantike deri tek charteri privat – kemi diçka për çdo dëshirë.</p>
+    </div>
   </section>
-  <div class="breadcrumb"><div class="container"><a href="index.html">Kryefaqja</a> <span>/</span> Aktivitetet</div></div>
+  <div class="breadcrumb"><div class="container"><a href="index.html">Kryefaqja</a> <span>/</span> Turet</div></div>
 
   <section style="padding:5rem 0;background:white;">
     <div class="container">
-      <div class="section-header fade-in"><span class="label">Çfarë Ofrojmë</span><h2>Aktivitete Bord & Det</h2></div>
-      <div class="act-grid">
-        <div class="act-item fade-in"><img src="https://images.unsplash.com/photo-1530053969600-caed2596d242?w=500&q=80" alt="Snorkeling"><div class="act-body"><h4>🤿 Snorkeling</h4><p>Pajisje falas · Vende sekrete</p></div></div>
-        <div class="act-item fade-in"><img src="https://images.unsplash.com/photo-1467195659-c08bb4c3c1c1?w=500&q=80" alt="Fishing"><div class="act-body"><h4>🎣 Peshkim Sportiv</h4><p>Pajisje + guid lokal</p></div></div>
-        <div class="act-item fade-in"><img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=500&q=80" alt="Sunset"><div class="act-body"><h4>🌅 Sunset Watching</h4><p>Pije + muzikë ambient</p></div></div>
-        <div class="act-item fade-in"><img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=500&q=80" alt="Plazhe"><div class="act-body"><h4>🏖️ Plazhe Sekrete</h4><p>Paarritshme me tokë</p></div></div>
-        <div class="act-item fade-in"><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=500&q=80" alt="Relax"><div class="act-body"><h4>🛁 Relaks në Bord</h4><p>Divanë · Pije · Muzikë</p></div></div>
-        <div class="act-item fade-in"><img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=500&q=80" alt="Photo"><div class="act-body"><h4>📸 Fotografi Drone</h4><p>Kujtime nga lart · Opsional</p></div></div>
-        <div class="act-item fade-in"><img src="https://images.unsplash.com/photo-1452721226468-f95fb66ebf83?w=500&q=80" alt="Swim"><div class="act-body"><h4>🏊 Not i Lirë</h4><p>Ujëra kristal · Ndalesa multiple</p></div></div>
-        <div class="act-item fade-in"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&q=80" alt="Food"><div class="act-body"><h4>🍽️ Drekë Lokale</h4><p>Ushqim shqiptar i freskët</p></div></div>
+
+      <!-- Tour 1 -->
+      <div class="split fade-in" style="margin-bottom:5rem">
+        <div class="split-img">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80" alt="Sunset Cruise">
+          <div class="img-float"><strong>3h</strong><span>Kohëzgjatja</span></div>
+        </div>
+        <div class="split-text">
+          <span class="label">Turi 01</span>
+          <h2>🌅 Sunset Cruise</h2>
+          <p>Kthehuni mbrapa në kohë dhe shijoni perëndimin e diellit mbi det Adriatik – ngjyra portokalli, rozë dhe vjollcë që reflektohen mbi ujë.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1.2rem 0">
+            <div style="background:var(--sand);padding:.8rem 1rem;border-radius:10px;font-size:.88rem"><strong style="color:var(--navy);display:block">⏱ Kohëzgjatja</strong>3 orë (18:00–21:00)</div>
+            <div style="background:var(--sand);padding:.8rem 1rem;border-radius:10px;font-size:.88rem"><strong style="color:var(--navy);display:block">👥 Kapaciteti</strong>Maks. 12 persona</div>
+            <div style="background:var(--sand);padding:.8rem 1rem;border-radius:10px;font-size:.88rem"><strong style="color:var(--navy);display:block">🥂 Përfshihet</strong>Pije mirëpritëse</div>
+            <div style="background:var(--sand);padding:.8rem 1rem;border-radius:10px;font-size:.88sim"><strong style="color:var(--navy);display:block">💰 Çmimi</strong>3,500 Lekë/person</div>
+          </div>
+          <div style="background:#fff3e0;border-left:4px solid var(--gold);padding:.8rem 1rem;border-radius:0 10px 10px 0;margin-bottom:1.2rem;font-size:.88rem;color:#92400e">
+            ⚡ Vetëm <strong>3 vende lira</strong> sot – rezervoni shpejt!
+          </div>
+          <button class="btn-primary btn-book-card" data-tour="🌅 Sunset Cruise (3h) – 3,500 Lekë/person">Rezervo Sunset Cruise</button>
+        </div>
       </div>
+
+      <!-- Tour 2 -->
+      <div class="split fade-in" style="margin-bottom:5rem;direction:rtl">
+        <div class="split-img" style="direction:ltr">
+          <img src="https://images.unsplash.com/photo-1540202404-a2f29016b523?w=800&q=80" alt="Full Day">
+          <div class="img-float"><strong>8h</strong><span>Kohëzgjatja</span></div>
+        </div>
+        <div class="split-text" style="direction:ltr">
+          <span class="label">Turi 02 – ⭐ Bestseller</span>
+          <h2>🌊 Full Day Explorer</h2>
+          <p>Dita e plotë eksplorimi – 8 orë nëpër ujërat e Rivierës Shqiptare. Vizitojmë plazhet e paarritshme me tokë, ndalojmë për snorkel, drekë dhe not.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1.2rem 0">
+            <div style="background:var(--sand);padding:.8rem 1rem;border-radius:10px;font-size:.88rem"><strong style="color:var(--navy);display:block">⏱ Kohëzgjatja</strong>8 orë (09:00–17:00)</div>
+            <div style="background:var(--sand);padding:.8rem 1rem;border-radius:10px;font-size:.88rem"><strong style="color:var(--navy);display:block">👥 Kapaciteti</strong>Maks. 12 persona</div>
+            <div style="background:var(--sand);padding:.8rem 1rem;border-radius:10px;font-size:.88rem"><strong style="color:var(--navy);display:block">🍱 Përfshihet</strong>Drekë lokale + pije</div>
+            <div style="background:var(--sand);padding:.8rem 1rem;border-radius:10px;font-size:.88rem"><strong style="color:var(--navy);display:block">💰 Çmimi</strong>5,500 Lekë/person</div>
+          </div>
+          <div style="background:#e8f5e9;border-left:4px solid #4caf50;padding:.8rem 1rem;border-radius:0 10px 10px 0;margin-bottom:1.2rem;font-size:.88rem;color:#2e7d32">
+            ✅ <strong>5 vende lira</strong> – ky tur nuk anulohet!
+          </div>
+          <button class="btn-primary btn-book-card" data-tour="🌊 Full Day Explorer (8h) – 5,500 Lekë/person">Rezervo Full Day Tour</button>
+        </div>
+      </div>
+
+      <!-- Tour 3 -->
+      <div class="split fade-in" style="margin-bottom:5rem">
+        <div class="split-img">
+          <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80" alt="Island Hopping">
+          <div class="img-float"><strong>6h</strong><span>Kohëzgjatja</span></div>
+        </div>
+        <div class="split-text">
+          <span class="label">Turi 03</span>
+          <h2>🏝️ Island Hopping</h2>
+          <p>3-4 ndalesa nëpër ishuj dhe grykat e shkëmbit – çdo ndalesë ka surprizën e vet. Ujëra të qarta, snorkel dhe pushim nën hijen e shkëmbinjve.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1.2rem 0">
+            <div style="background:var(--sand);padding:.8rem 1rem;border-radius:10px;font-size:.88rem"><strong style="color:var(--navy);display:block">⏱ Kohëzgjatja</strong>6 orë (10:00–16:00)</div>
+            <div style="background:var(--sand);padding:.8rem 1rem;border-radius:10px;font-size:.88rem"><strong style="color:var(--navy);display:block">👥 Kapaciteti</strong>Maks. 12 persona</div>
+            <div style="background:var(--sand);padding:.8rem 1rem;border-radius:10px;font-size:.88rem"><strong style="color:var(--navy);display:block">🤿 Përfshihet</strong>Pajisje snorkeling</div>
+            <div style="background:var(--sand);padding:.8rem 1rem;border-radius:10px;font-size:.88rem"><strong style="color:var(--navy);display:block">💰 Çmimi</strong>7,500 Lekë/person</div>
+          </div>
+          <button class="btn-primary btn-book-card" data-tour="🏝️ Island Hopping (6h) – 7,500 Lekë/person">Rezervo Island Hopping</button>
+        </div>
+      </div>
+
+      <!-- Tour 4 – Private -->
+      <div style="background:var(--navy);border-radius:var(--radius);padding:3rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center" class="fade-in">
+        <div>
+          <span style="display:inline-block;background:var(--gold);color:var(--navy);font-size:.75rem;font-weight:700;padding:.3rem 1rem;border-radius:50px;letter-spacing:1px;margin-bottom:1rem">⭐ PREMIUM</span>
+          <h2 style="font-family:var(--font-display);font-size:2rem;color:white;margin-bottom:1rem">⭐ Private Charter</h2>
+          <p style="color:rgba(255,255,255,.8);margin-bottom:1.5rem">Varka vetëm për ju – çdo detaj sipas dëshirës suaj. Ideal për propozime, festa, evente korporative dhe dasmash.</p>
+          <ul style="list-style:none;margin-bottom:1.5rem">
+            <li style="color:rgba(255,255,255,.8);padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.1)">✓ Orari sipas dëshirës tuaj</li>
+            <li style="color:rgba(255,255,255,.8);padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.1)">✓ Menu e personalizuar</li>
+            <li style="color:rgba(255,255,255,.8);padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.1)">✓ Fotograf profesional opsional</li>
+            <li style="color:rgba(255,255,255,.8);padding:.4rem 0">✓ Dekorime dhe surpriza opsionale</li>
+          </ul>
+          <div style="font-family:var(--font-display);font-size:2.5rem;color:var(--gold-light);margin-bottom:1.5rem">12,000 <span style="font-size:1rem;font-family:var(--font-body);color:rgba(255,255,255,.6)">Lekë/varkë</span></div>
+          <button class="btn-primary btn-book-card" data-tour="⭐ Private Charter – 12,000 Lekë/varkë">Rezervo Charter Privat</button>
+        </div>
+        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80" alt="Private Charter" style="border-radius:14px;height:320px;object-fit:cover;width:100%">
+      </div>
+
     </div>
   </section>
 
   <section class="cta-banner">
-    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80" alt="Beach" class="cta-bg"><div class="cta-overlay"></div>
-    <div class="cta-content"><h2>Rezervoni Aventurën Tuaj!</h2><p>Kontaktoni tani – vendet mbushen shpejt!</p>
-      <a href="https://wa.me/355697015966?text=Përshëndetje!%20Dua%20të%20rezervoj%20nje%20tur." class="btn-primary" target="_blank">📱 Rezervo në WhatsApp</a></div>
+    <img src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?w=1600&q=80" alt="Sea" class="cta-bg">
+    <div class="cta-overlay"></div>
+    <div class="cta-content">
+      <h2>Nuk Jeni i Sigurt Cilin Tur?</h2>
+      <p>Shkruani në WhatsApp dhe ju ndihmojmë të zgjidhni turin perfekt për ju!</p>
+      <a href="https://wa.me/355697015966?text=Përshëndetje!%20Dua%20informacion%20mbi%20turet%20tuaja." class="btn-primary" target="_blank">📱 Pyetni në WhatsApp</a>
+    </div>
   </section>
 
-  <footer class="footer"><div class="container footer-grid">
-    <div class="footer-brand"><div class="logo">⚓ WaveRider</div><p>Turet më të bukura bregdetare të Shqipërisë.</p><div class="social-links"><a href="#">📘</a><a href="#">📸</a><a href="#">🎵</a></div></div>
-    <div class="footer-links"><h4>Navigimi</h4><ul><li><a href="index.html">Kryefaqja</a></li><li><a href="turet.html">Turet</a></li><li><a href="aktivitetet.html">Aktivitetet</a></li><li><a href="galeria.html">Galeria</a></li><li><a href="cmimi.html">Çmimet</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
-    <div class="footer-contact"><h4>Na Gjeni</h4><p>⚓ Skela e Vlorës</p><p>📞 +355 69 701 5966</p><p>✉️ info@waverider.al</p></div>
-  </div><div class="footer-bottom">© 2025 WaveRider Boat Tours.</div></footer>
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand"><div class="logo">⚓ WaveRider</div><p>Turet më të bukura bregdetare të Shqipërisë.</p><div class="social-links"><a href="#">📘</a><a href="#">📸</a><a href="#">🎵</a></div></div>
+      <div class="footer-links"><h4>Navigimi</h4><ul><li><a href="index.html">Kryefaqja</a></li><li><a href="turet.html">Turet</a></li><li><a href="aktivitetet.html">Aktivitetet</a></li><li><a href="galeria.html">Galeria</a></li><li><a href="cmimi.html">Çmimet</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
+      <div class="footer-contact"><h4>Na Gjeni</h4><p>⚓ Skela e Vlorës, Porti Turistik</p><p>📞 +355 69 701 5966</p><p>✉️ info@waverider.al</p></div>
+    </div>
+    <div class="footer-bottom">© 2025 WaveRider Boat Tours.</div>
+  </footer>
 
-  <a href="https://wa.me/355697015966?text=Përshëndetje%20WaveRider!" class="whatsapp-btn" target="_blank" rel="noopener">
+  <a href="https://wa.me/355697015966?text=Përshëndetje%20WaveRider!%20Dua%20të%20rezervoj%20nje%20tur." class="whatsapp-btn" target="_blank" rel="noopener">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="26" height="26"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     <span>WhatsApp</span>
   </a>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="bookModal">
+      <button class="modal-close" id="modalClose">✕</button>
+      <h3>🚢 Konfirmo Rezervimin</h3>
+      <p>Plotësoni të dhënat – konfirmim brenda 1 ore në WhatsApp.</p>
+      <form class="modal-form" id="modalForm">
+        <div class="form-group"><label>Emri & Mbiemri *</label><input type="text" id="mName" placeholder="Emri juaj" required></div>
+        <div class="form-group"><label>Telefoni *</label><input type="tel" id="mPhone" placeholder="+355 6X XXX XXXX" required></div>
+        <div class="form-group"><label>Turi *</label><select id="mTour" required><option value="">-- Zgjidhni --</option><option>🌅 Sunset Cruise (3h) – 3,500 Lekë/person</option><option>🌊 Full Day Explorer (8h) – 5,500 Lekë/person</option><option>🏝️ Island Hopping (6h) – 7,500 Lekë/person</option><option>⭐ Private Charter – 12,000 Lekë/varkë</option></select></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem">
+          <div class="form-group"><label>Data *</label><input type="date" id="mDate" required></div>
+          <div class="form-group"><label>Persona *</label><select id="mGuests" required><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7-9</option><option>10-12</option></select></div>
+        </div>
+        <div class="form-group"><label>Kërkesë Speciale</label><textarea id="mNote" placeholder="Festë speciale, alergji..."></textarea></div>
+        <div class="modal-actions">
+          <button type="submit" class="btn-book">📩 Dërgo në WhatsApp</button>
+          <button type="button" class="btn-ghost" style="color:var(--navy);border-color:var(--navy)" onclick="document.getElementById('modalOverlay').classList.remove('active');document.body.style.overflow=''">Anulo</button>
+        </div>
+        <div class="success-msg" id="successMsg">✅ Rezervimi u dërgua! Do ju kontaktojmë shpejt.</div>
+      </form>
+    </div>
+  </div>
+  <script>const today=new Date().toISOString().split('T')[0];document.querySelectorAll('input[type="date"]').forEach(d=>d.min=today);</script>
   <script src="script.js"></script>
 </body>
 </html>
