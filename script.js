@@ -4,7 +4,7 @@ if (navbar) {
   window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
 }
 
-// ===== BURGER =====
+// ===== BURGER MENU =====
 const burger = document.getElementById('burger');
 const navLinks = document.getElementById('navLinks');
 if (burger && navLinks) {
@@ -13,11 +13,14 @@ if (burger && navLinks) {
     burger.classList.toggle('open', isOpen);
     document.body.style.overflow = isOpen ? 'hidden' : '';
   });
-  navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    burger.classList.remove('open');
-    document.body.style.overflow = '';
-  }));
+  // Close when a link is clicked
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      burger.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
 }
 
 // ===== FADE-IN =====
