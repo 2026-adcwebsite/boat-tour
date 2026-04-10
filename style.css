@@ -86,6 +86,7 @@ a { text-decoration:none; color:inherit; }
 .nav-inner { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; }
 .logo { font-family: var(--font-display); font-size: 1.7rem; font-weight: 700; color: white; display: flex; align-items: center; gap: .5rem; }
 .logo-icon { font-size: 1.4rem; }
+/* Desktop nav */
 .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
 .nav-links a { color: rgba(255,255,255,.85); font-weight: 500; font-size: .9rem; transition: color .2s; letter-spacing: .3px; }
 .nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
@@ -98,33 +99,36 @@ a { text-decoration:none; color:inherit; }
 }
 .btn-rezervo-nav:hover { color: var(--navy) !important; }
 
+/* Burger – hidden on desktop */
 .burger {
   display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px;
-  z-index: 1001;
+  padding: 6px;
+  z-index: 1100;
   position: relative;
   width: 44px;
   height: 44px;
+  flex-shrink: 0;
 }
 .burger span {
   display: block;
-  width: 26px;
-  height: 2.5px;
+  width: 24px;
+  height: 2px;
   background: white;
-  border-radius: 3px;
-  transition: transform .35s ease, opacity .25s ease, width .3s ease;
+  border-radius: 2px;
+  transition: transform .3s ease, opacity .2s ease, width .3s ease;
   transform-origin: center;
 }
-.burger.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+/* X state */
+.burger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 .burger.open span:nth-child(2) { opacity: 0; width: 0; }
-.burger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+.burger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 /* ===== HERO ===== */
 .hero {
@@ -476,42 +480,65 @@ a { text-decoration:none; color:inherit; }
 @media(max-width:1024px) { .tours-grid { grid-template-columns:repeat(2,1fr); } .act-grid { grid-template-columns:repeat(2,1fr); } }
 
 @media(max-width:768px) {
-  .burger { display:flex !important; }
 
+  /* Show burger button */
+  .burger { display: flex !important; }
+
+  /* Hide nav on mobile – slides in from right when .open */
   .nav-links {
+    display: none;
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: var(--navy);
-    transform: translateX(100%);
-    transition: transform .4s cubic-bezier(.77,0,.18,1);
-    gap: 1.8rem;
-    z-index: 1000;
-    padding: 5rem 2rem 2rem;
+    background: rgba(10,35,66,.98);
+    gap: 0;
+    z-index: 1050;
+    padding: 0;
     list-style: none;
-    display: flex;
+    margin: 0;
+    overflow-y: auto;
   }
-  .nav-links.open { transform: translateX(0); }
-  .nav-links li { text-align: center; width: 100%; }
-  .nav-links a {
-    font-size: 1.3rem;
-    color: rgba(255,255,255,.9);
-    display: block;
-    padding: .4rem 0;
-    font-weight: 600;
+  /* When JS adds .open – show and animate in */
+  .nav-links.open {
+    display: flex !important;
+    animation: slideInRight .35s ease forwards;
   }
-  .nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
-  .btn-rezervo-nav {
-    background: linear-gradient(135deg, var(--gold), #c49340) !important;
-    color: var(--navy) !important;
-    padding: .7rem 2rem !important;
-    border-radius: 50px;
-    display: inline-block !important;
-    margin-top: .5rem;
+  @keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to   { transform: translateX(0);    opacity: 1; }
   }
 
+  .nav-links li {
+    text-align: center;
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .nav-links li:first-child { border-top: 1px solid rgba(255,255,255,.08); }
+
+  .nav-links a {
+    font-size: 1.15rem !important;
+    color: rgba(255,255,255,.9) !important;
+    display: block !important;
+    padding: 1.1rem 2rem !important;
+    font-weight: 600;
+    transition: background .2s, color .2s;
+  }
+  .nav-links a:hover  { background: rgba(255,255,255,.06) !important; }
+  .nav-links a.active { color: var(--gold-light) !important; }
+
+  .nav-links .btn-rezervo-nav {
+    background: linear-gradient(135deg, var(--gold), #c49340) !important;
+    color: var(--navy) !important;
+    margin: 1.5rem auto 0 !important;
+    padding: .85rem 2.5rem !important;
+    border-radius: 50px !important;
+    display: inline-block !important;
+    font-weight: 700 !important;
+  }
+
+  /* Layout */
   .tours-grid { grid-template-columns:1fr; }
   .booking-wrap { grid-template-columns:1fr; }
   .split { grid-template-columns:1fr; }
