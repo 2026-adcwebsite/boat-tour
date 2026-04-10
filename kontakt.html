@@ -1,215 +1,354 @@
 <!DOCTYPE html>
 <html lang="sq">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kontakt & Rezervim – WaveRider Boat Tours</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WaveRider Boat Tours – Shqipëri</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-    .form-row-2 { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-    .avail-banner { display:flex; align-items:center; gap:1rem; background:white; border-radius:14px; padding:1.2rem 1.5rem; margin-bottom:1.5rem; box-shadow:0 2px 15px rgba(10,35,66,.07); }
-    .avail-banner .ab-icon { font-size:2rem; flex-shrink:0; }
-    .avail-banner strong { color:var(--navy); display:block; margin-bottom:.15rem; }
-    .avail-banner span { font-size:.85rem; color:var(--text-mid); }
-    .contact-form-wrap { background:white; border-radius:var(--radius); padding:2rem; box-shadow:0 4px 30px rgba(10,35,66,.08); }
-    .contact-info-strip { background:#f8fafc; border-radius:10px; padding:.9rem 1rem; margin-bottom:1rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:.4rem; font-size:.82rem; }
-    .wa-cta-box { background:#075e54; border-radius:var(--radius); padding:2rem; margin-top:1.5rem; text-align:center; }
-    .wa-cta-box h3 { font-family:var(--font-display); font-size:1.4rem; color:white; margin-bottom:.6rem; }
-    .wa-cta-box p { color:rgba(255,255,255,.8); font-size:.9rem; margin-bottom:1.3rem; }
-    .wa-cta-link { display:inline-flex; align-items:center; gap:.7rem; background:#25d366; color:white; padding:.9rem 1.8rem; border-radius:50px; font-weight:700; font-size:.95rem; transition:background .2s; }
-    .wa-cta-link:hover { background:#1da851; }
-    .map-placeholder { margin-top:1.5rem; background:white; border-radius:var(--radius); height:200px; display:flex; align-items:center; justify-content:center; border:2px dashed #b8d4e8; box-shadow:0 2px 15px rgba(10,35,66,.07); text-align:center; color:var(--navy); }
-    .map-placeholder p { font-weight:700; margin:.4rem 0 .2rem; }
-    .map-placeholder small { font-size:.82rem; color:var(--text-light); }
-    .submit-btn { width:100%; padding:1.1rem; font-size:1rem; border:none; cursor:pointer; border-radius:12px; display:flex; align-items:center; justify-content:center; gap:.6rem; }
-
-    @media(max-width:768px) {
-      .contact-grid  { grid-template-columns:1fr !important; gap:2rem !important; }
-      .form-row-2    { grid-template-columns:1fr; }
-      .contact-form-wrap { padding:1.2rem; }
-      .avail-banner  { padding:.9rem 1rem; }
-      .contact-info-strip { flex-direction:column; gap:.3rem; }
-    }
-  </style>
 </head>
 <body>
 
-  <nav class="navbar scrolled" id="navbar">
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
     <div class="nav-inner">
       <a href="index.html" class="logo"><span class="logo-icon">⚓</span> WaveRider</a>
-      <button class="burger" id="burger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Kryefaqja</a></li>
+        <li><a href="index.html" class="active">Kryefaqja</a></li>
         <li><a href="turet.html">Turet</a></li>
         <li><a href="aktivitetet.html">Aktivitetet</a></li>
         <li><a href="galeria.html">Galeria</a></li>
         <li><a href="cmimi.html">Çmimet</a></li>
-        <li><a href="kontakt.html" class="active">Kontakt</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
         <li><a href="kontakt.html" class="btn-rezervo-nav">Rezervo</a></li>
       </ul>
     </div>
   </nav>
+  <!-- MOBILE NAV FIX -->
+  <style>
+    @media(max-width:768px){
+      #navbar .nav-inner { position:relative; z-index:1002; }
+      #burger { display:flex !important; flex-direction:column; justify-content:center; align-items:center; gap:5px; background:none; border:none; cursor:pointer; padding:8px; width:44px; height:44px; position:relative; z-index:1002; }
+      #burger span { display:block !important; width:26px; height:2.5px; background:white; border-radius:3px; transition:transform .35s ease, opacity .25s ease, width .3s ease; transform-origin:center; pointer-events:none; }
+      #burger.open span:nth-child(1){ transform:translateY(7.5px) rotate(45deg); }
+      #burger.open span:nth-child(2){ opacity:0; width:0; }
+      #burger.open span:nth-child(3){ transform:translateY(-7.5px) rotate(-45deg); }
+      #navLinks { display:flex !important; position:fixed !important; top:0 !important; left:0 !important; right:0 !important; bottom:0 !important; flex-direction:column !important; justify-content:center !important; align-items:center !important; background:rgba(10,35,66,.98) !important; transform:translateX(100%) !important; transition:transform .4s cubic-bezier(.77,0,.18,1) !important; gap:1.6rem !important; z-index:1001 !important; padding:5rem 2rem 2rem !important; list-style:none !important; margin:0 !important; }
+      #navLinks.open { transform:translateX(0) !important; }
+      #navLinks li { text-align:center; width:100%; }
+      #navLinks a { font-size:1.25rem !important; color:rgba(255,255,255,.9) !important; display:block; padding:.5rem 0; font-weight:600; }
+      #navLinks a.active { color:#f0d080 !important; }
+      #navLinks .btn-rezervo-nav { background:linear-gradient(135deg,#d4a853,#c49340) !important; color:#0a2342 !important; padding:.7rem 2rem !important; border-radius:50px; display:inline-block !important; margin-top:.5rem; }
+    }
+  </style>
 
-  <section class="page-hero">
-    <div class="page-hero-bg">
-      <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=1600&q=80" alt="Kontakt">
-      <div class="page-hero-overlay"></div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1800&q=85" alt="Boat Tour Albania" class="hero-img">
+      <div class="hero-overlay"></div>
     </div>
-    <div class="page-hero-content">
-      <span class="label">Na Kontaktoni</span>
-      <h1>Rezervo & Kontakt</h1>
-      <p>Konfirmim i menjëhershëm – shkruani në WhatsApp ose plotësoni formularin.</p>
+    <div class="hero-content">
+      <div class="hero-badge">⚓ Eksplorim i Bregdetit Shqiptar</div>
+      <h1>Lundro nën<br>diell të<br><em>Adriatikut</em></h1>
+      <p>Zbuloni grykat e fshehta, plazhet e aksesueshme vetëm me varkë dhe ngjyrat e detit shqiptar me turet tona të personalizuara.</p>
+      <div class="hero-btns">
+        <a href="turet.html" class="btn-primary">Shihni Turet</a>
+        <a href="#booking" class="btn-ghost">Rezervo Tani ↓</a>
+      </div>
+    </div>
+    <!-- Live availability badge -->
+    <div class="avail-strip">
+      <strong>5 Vende</strong>
+      <span>të lira sot</span>
+      <div class="avail-dots">
+        <div class="dot taken"></div><div class="dot taken"></div><div class="dot taken"></div>
+        <div class="dot taken"></div><div class="dot taken"></div><div class="dot taken"></div>
+        <div class="dot taken"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      </div>
+    </div>
+    <div class="hero-scroll">↓</div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat"><strong>8+</strong><span>Ture Disponueshme</span></div>
+    <div class="stat"><strong>3200+</strong><span>Turistë të Kënaqur</span></div>
+    <div class="stat"><strong>4.9★</strong><span>Vlerësim Mesatar</span></div>
+    <div class="stat"><strong>12</strong><span>Vende Max / Tur</span></div>
+  </div>
+
+  <!-- BOOKING SECTION – Airbnb style -->
+  <section class="booking-section" id="booking">
+    <div class="container">
+      <div class="booking-wrap">
+        <div class="booking-info fade-in">
+          <span class="label">Rezervimi i Sigurt</span>
+          <h2>Siguroni Vendin Tuaj<br>Para se të Mbushen</h2>
+          <p>Varkat tona kanë kapacitet të kufizuar – maksimumi 12 persona për tur. Kjo garanton një përvojë private dhe autentike. Rezervoni tani pa paragjykim!</p>
+          <ul class="booking-features">
+            <li><span class="feat-icon">✅</span> Anulim falas 48 orë para turit</li>
+            <li><span class="feat-icon">🔒</span> Konfirmim i menjëhershëm me WhatsApp</li>
+            <li><span class="feat-icon">👥</span> Maksimumi 12 persona – eksperiencë private</li>
+            <li><span class="feat-icon">🧥</span> Jelek shpëtimi + pajisje snorkeling falas</li>
+            <li><span class="feat-icon">🥂</span> Pije mirëpritëse dhe fruta sezonale</li>
+            <li><span class="feat-icon">📸</span> Fotograf në bord opsional</li>
+            <li><span class="feat-icon">⚓</span> Kapiteni me 10+ vjet eksperiencë</li>
+          </ul>
+        </div>
+
+        <!-- BOOKING WIDGET – Airbnb Calendar Style -->
+        <div class="fade-in">
+          <div class="booking-widget">
+            <div class="widget-header">
+              <div class="widget-price">nga 3,500 <span>Lekë / person</span></div>
+              <div class="widget-rating"><span class="stars">★★★★★</span> 4.97 · 182 recensione</div>
+            </div>
+
+            <!-- Tour selector -->
+            <div style="border:2px solid #e0e8f0;border-radius:12px;padding:.9rem 1rem;margin-bottom:.8rem;">
+              <label style="display:block;font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--navy);margin-bottom:.3rem">Lloji i Turit</label>
+              <select id="tourSelect" style="border:none;outline:none;font-family:var(--font-body);font-size:.95rem;color:var(--text-dark);width:100%;background:transparent;cursor:pointer;">
+                <option value="sunset">🌅 Sunset Cruise – 3,500 Lekë/person</option>
+                <option value="full">🌊 Full Day Explorer – 5,500 Lekë/person</option>
+                <option value="island">🏝️ Island Hopping – 7,500 Lekë/person</option>
+                <option value="private">⭐ Private Charter – 12,000 Lekë/varkë</option>
+              </select>
+            </div>
+
+            <!-- Airbnb-style Calendar -->
+            <div style="border:2px solid #e0e8f0;border-radius:12px;overflow:hidden;margin-bottom:.8rem;">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:.8rem 1rem;border-bottom:1px solid #e0e8f0;background:#f8fafc;">
+                <button id="calPrev" style="background:none;border:none;cursor:pointer;font-size:1.1rem;color:var(--navy);padding:.2rem .5rem;border-radius:6px;transition:background .2s" onmouseover="this.style.background='#e0e8f0'" onmouseout="this.style.background='none'">‹</button>
+                <span id="calMonthLabel" style="font-weight:700;font-size:.9rem;color:var(--navy);font-family:var(--font-display);font-size:1rem;"></span>
+                <button id="calNext" style="background:none;border:none;cursor:pointer;font-size:1.1rem;color:var(--navy);padding:.2rem .5rem;border-radius:6px;transition:background .2s" onmouseover="this.style.background='#e0e8f0'" onmouseout="this.style.background='none'">›</button>
+              </div>
+              <div style="padding:.6rem .8rem;">
+                <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:4px;">
+                  <div style="text-align:center;font-size:.65rem;font-weight:700;color:var(--text-light);padding:.3rem 0">Hë</div>
+                  <div style="text-align:center;font-size:.65rem;font-weight:700;color:var(--text-light);padding:.3rem 0">Ma</div>
+                  <div style="text-align:center;font-size:.65rem;font-weight:700;color:var(--text-light);padding:.3rem 0">Më</div>
+                  <div style="text-align:center;font-size:.65rem;font-weight:700;color:var(--text-light);padding:.3rem 0">En</div>
+                  <div style="text-align:center;font-size:.65rem;font-weight:700;color:var(--text-light);padding:.3rem 0">Pr</div>
+                  <div style="text-align:center;font-size:.65rem;font-weight:700;color:var(--text-light);padding:.3rem 0">Sh</div>
+                  <div style="text-align:center;font-size:.65rem;font-weight:700;color:var(--text-light);padding:.3rem 0">Di</div>
+                </div>
+                <div id="calGrid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:2px;"></div>
+              </div>
+              <!-- Legend -->
+              <div style="display:flex;gap:1.2rem;padding:.6rem 1rem;border-top:1px solid #f0f4f8;background:#f8fafc;">
+                <div style="display:flex;align-items:center;gap:.4rem;font-size:.72rem;color:var(--text-light)"><span style="width:12px;height:12px;border-radius:50%;background:var(--teal);display:inline-block"></span>E lirë</div>
+                <div style="display:flex;align-items:center;gap:.4rem;font-size:.72rem;color:var(--text-light)"><span style="width:12px;height:12px;border-radius:50%;background:#fbbf24;display:inline-block"></span>Vende pak</div>
+                <div style="display:flex;align-items:center;gap:.4rem;font-size:.72rem;color:var(--text-light)"><span style="width:12px;height:12px;border-radius:50%;background:#e5e7eb;display:inline-block"></span>E zënë</div>
+              </div>
+            </div>
+
+            <!-- Selected date info -->
+            <div id="selectedDateInfo" style="display:none;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:.7rem 1rem;margin-bottom:.8rem;font-size:.85rem;color:#166534;">
+              <strong id="selectedDateText"></strong><span id="selectedSpotsText"></span>
+            </div>
+
+            <!-- Guests -->
+            <div style="border:2px solid #e0e8f0;border-radius:12px;padding:.9rem 1rem;margin-bottom:.8rem;display:flex;justify-content:space-between;align-items:center;">
+              <div>
+                <label style="font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--navy);display:block">Persona</label>
+                <span style="font-size:.8rem;color:var(--text-light)" id="spotsLeftLabel">Maks. 12 / tur</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:.8rem;">
+                <button class="g-btn" id="gMinus">−</button>
+                <span class="g-count" id="gCount">2</span>
+                <button class="g-btn" id="gPlus">+</button>
+              </div>
+            </div>
+
+            <!-- Price breakdown -->
+            <div class="price-breakdown">
+              <div class="price-row"><span>Çmimi bazë</span><span id="rowBase">7,000 Lekë</span></div>
+              <div class="price-row"><span>Tarifa rezervimi (5%)</span><span id="rowFee">350 Lekë</span></div>
+              <div class="price-row total"><span>Totali</span><span id="rowTotal">7,350 Lekë</span></div>
+            </div>
+
+            <button class="btn-book" id="btnBook">🚢 Rezervo Tani</button>
+            <button class="btn-wa" id="btnWA">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Shkruaj në WhatsApp
+            </button>
+            <p class="widget-note">🛡️ Rezervimi konfirmohet brenda 1 ore · Pagesa në bord</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <div class="breadcrumb">
-    <div class="container"><a href="index.html">Kryefaqja</a> <span>/</span> Kontakt</div>
-  </div>
-
-  <section style="padding:4rem 0;background:var(--sand);">
+  <!-- TOUR CARDS -->
+  <section class="tours-section">
     <div class="container">
-      <div class="contact-grid">
+      <div class="section-header fade-in">
+        <span class="label">Turet Tona</span>
+        <h2>Zgjidhni Aventurën Tuaj</h2>
+      </div>
+      <div class="tours-grid">
 
-        <!-- FORM -->
-        <div class="fade-in">
-          <span class="label" style="display:block;margin-bottom:.5rem">Rezervo Online</span>
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.7rem,3vw,2.2rem);color:var(--navy);margin-bottom:1.5rem;font-weight:600;line-height:1.2">Dërgoni Kërkesën Tuaj</h2>
-
-          <div class="avail-banner">
-            <div class="ab-icon">🚢</div>
-            <div>
-              <strong>Disponueshmëria Sot</strong>
-              <span>⚡ <strong style="color:#c0392b">5 vende lira</strong> nga 12 total – rezervoni shpejt!</span>
-            </div>
+        <div class="tour-card fade-in">
+          <div class="tour-card-img">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&q=80" alt="Sunset Tour">
+            <span class="tour-badge">Sunset</span>
+            <span class="spots-badge low">⚡ 3 vende lira</span>
           </div>
-
-          <div class="contact-form-wrap">
-            <form id="contactForm">
-
-              <div class="form-row-2">
-                <div class="form-group">
-                  <label for="cName">Emri & Mbiemri *</label>
-                  <input type="text" id="cName" placeholder="Emri juaj i plotë" required>
-                </div>
-                <div class="form-group">
-                  <label for="cPhone">Telefoni *</label>
-                  <input type="tel" id="cPhone" placeholder="+355 69 701 5966" required>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="cEmail">Email (opsional)</label>
-                <input type="email" id="cEmail" placeholder="email@juaj.com">
-              </div>
-
-              <div class="form-group">
-                <label for="cTour">Lloji i Turit *</label>
-                <select id="cTour" required>
-                  <option value="">-- Zgjidhni Turin --</option>
-                  <option>🌅 Sunset Cruise (3h) – 3,500 Lekë/person</option>
-                  <option>🌊 Full Day Explorer (8h) – 5,500 Lekë/person</option>
-                  <option>🏝️ Island Hopping (6h) – 7,500 Lekë/person</option>
-                  <option>⭐ Private Charter – 12,000 Lekë/varkë e plotë</option>
-                </select>
-              </div>
-
-              <div class="form-row-2">
-                <div class="form-group">
-                  <label for="cDate">Data e Turit *</label>
-                  <input type="date" id="cDate" required>
-                </div>
-                <div class="form-group">
-                  <label for="cPersona">Numri Personave *</label>
-                  <select id="cPersona" required>
-                    <option>1 person</option>
-                    <option selected>2 persona</option>
-                    <option>3 persona</option>
-                    <option>4 persona</option>
-                    <option>5 persona</option>
-                    <option>6 persona</option>
-                    <option>7 persona</option>
-                    <option>8 persona</option>
-                    <option>9–12 persona</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="cNote">Kërkesa Speciale (opsionale)</label>
-                <textarea id="cNote" placeholder="Festë speciale, alergji, fëmijë të vegjël, kërkesë tjetër..."></textarea>
-              </div>
-
-              <div class="contact-info-strip">
-                <span style="color:var(--teal);font-weight:700">✓ Anulim falas 24h para</span>
-                <span style="color:var(--text-mid)">💳 Pagesa vetëm në bord</span>
-                <span style="color:var(--text-mid)">🔒 Pa depozitë</span>
-              </div>
-
-              <button type="submit" class="btn-primary submit-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                Dërgo Rezervimin në WhatsApp
-              </button>
-            </form>
+          <div class="tour-body">
+            <h3>Sunset Cruise</h3>
+            <div class="tour-meta">
+              <span>⏱ 3 orë</span>
+              <span>👥 maks. 12</span>
+              <span>🕖 18:00</span>
+            </div>
+            <p>Panoramë mahnitëse ndaj perëndimit të diellit mbi detin Adriatik. Pije, muzikë dhe momente të paharrueshme.</p>
+            <div class="tour-footer">
+              <div class="tour-price">3,500 <span>Lekë/person</span></div>
+              <button class="btn-primary btn-book-card" data-tour="Sunset Cruise" style="padding:.6rem 1.4rem;font-size:.85rem">Rezervo</button>
+            </div>
           </div>
         </div>
 
-        <!-- INFO -->
-        <div class="fade-in">
-          <span class="label" style="display:block;margin-bottom:.5rem">Kontaktet Tona</span>
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.7rem,3vw,2.2rem);color:var(--navy);margin-bottom:1.5rem;font-weight:600;line-height:1.2">Gjeni Na Kudo</h2>
-
-          <div class="info-card">
-            <h3>📍 Vendndodhja & Orari</h3>
-            <div class="info-item">
-              <div class="icon">⚓</div>
-              <div><strong>Skela</strong><span>Porti Turistik i Vlorës<br>Rrethrrotullimi i Skelës, Vlorë</span></div>
+        <div class="tour-card fade-in">
+          <div class="tour-card-img">
+            <img src="https://images.unsplash.com/photo-1540202404-a2f29016b523?w=700&q=80" alt="Full Day">
+            <span class="tour-badge">🌟 Bestseller</span>
+            <span class="spots-badge">5 vende lira</span>
+          </div>
+          <div class="tour-body">
+            <h3>Full Day Explorer</h3>
+            <div class="tour-meta">
+              <span>⏱ 8 orë</span>
+              <span>👥 maks. 12</span>
+              <span>🕙 09:00</span>
             </div>
-            <div class="info-item">
-              <div class="icon">📞</div>
-              <div><strong>Telefon / WhatsApp</strong><span>+355 69 701 5966</span></div>
-            </div>
-            <div class="info-item">
-              <div class="icon">✉️</div>
-              <div><strong>Email</strong><span>info@waverider.al</span></div>
-            </div>
-            <div class="info-item">
-              <div class="icon">⏰</div>
-              <div><strong>Orari</strong><span>Çdo ditë 07:30 – 21:00<br>Sezoni: Qershor – Shtator</span></div>
+            <p>Dita e plotë duke eksploruar plazhet e fshehta, grykat e shkëmbit dhe ujërat kristal të Rivierës Shqiptare.</p>
+            <div class="tour-footer">
+              <div class="tour-price">5,500 <span>Lekë/person</span></div>
+              <button class="btn-primary btn-book-card" data-tour="Full Day Explorer" style="padding:.6rem 1.4rem;font-size:.85rem">Rezervo</button>
             </div>
           </div>
+        </div>
 
-          <div class="wa-cta-box">
-            <div style="font-size:2.5rem;margin-bottom:.8rem">💬</div>
-            <h3>Shkruani Direkt!</h3>
-            <p>Përgjigjemi brenda minutave. Rezervimi konfirmohet menjëherë.</p>
-            <a href="https://wa.me/355697015966?text=Përshëndetje%20WaveRider!%20Dua%20të%20rezervoj%20nje%20tur."
-               target="_blank" rel="noopener" class="wa-cta-link">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Hap WhatsApp
-            </a>
+        <div class="tour-card fade-in">
+          <div class="tour-card-img">
+            <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=700&q=80" alt="Island Hopping">
+            <span class="tour-badge">Island Hop</span>
+            <span class="spots-badge">8 vende lira</span>
           </div>
-
-          <div class="map-placeholder">
-            <div>
-              <div style="font-size:3rem;margin-bottom:.3rem">🗺️</div>
-              <p>Porti Turistik, Vlorë</p>
-              <small>GPS: 40.4539° N, 19.4863° E</small>
+          <div class="tour-body">
+            <h3>Island Hopping</h3>
+            <div class="tour-meta">
+              <span>⏱ 6 orë</span>
+              <span>👥 maks. 12</span>
+              <span>🕙 10:00</span>
+            </div>
+            <p>Vizitoni 3-4 ishuj dhe grykat e ndryshme, ndaloni për snorkel, not dhe drekë lokale nën hije.</p>
+            <div class="tour-footer">
+              <div class="tour-price">7,500 <span>Lekë/person</span></div>
+              <button class="btn-primary btn-book-card" data-tour="Island Hopping" style="padding:.6rem 1.4rem;font-size:.85rem">Rezervo</button>
             </div>
           </div>
         </div>
 
       </div>
+      <div style="text-align:center;margin-top:2.5rem">
+        <a href="turet.html" class="btn-navy">Shihni të Gjitha Turet →</a>
+      </div>
     </div>
   </section>
 
+  <!-- ABOUT -->
+  <section class="about-section">
+    <div class="container split">
+      <div class="split-img fade-in">
+        <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=800&q=80" alt="Varka">
+        <div class="img-float"><strong>10+</strong><span>Vjet Eksperiencë</span></div>
+      </div>
+      <div class="split-text fade-in">
+        <span class="label">Kush Jemi</span>
+        <h2>WaveRider – Ekspertët<br>e Detit Shqiptar</h2>
+        <p>Që nga 2014, WaveRider ofron turet më të çmuara bregdetare të Shqipërisë. Varka jonë moderne, me kapacitet 12 persona, siguron privatësi dhe komoditet maksimal.</p>
+        <p>Kapiteni Arben, me mbi 10 vjet eksperiencë, njeh çdo grykë dhe plazh sekret të bregdetit shqiptar – nga Vlora deri në Sarandë.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:2rem 0">
+          <div style="text-align:center;padding:1.2rem;background:var(--sand);border-radius:14px">
+            <div style="font-size:2rem;font-family:var(--font-display);font-weight:700;color:var(--ocean)">3,200+</div>
+            <div style="font-size:.85rem;color:var(--text-mid)">Turistë të Kënaqur</div>
+          </div>
+          <div style="text-align:center;padding:1.2rem;background:var(--sand);border-radius:14px">
+            <div style="font-size:2rem;font-family:var(--font-display);font-weight:700;color:var(--ocean)">4.97★</div>
+            <div style="font-size:.85rem;color:var(--text-mid)">Vlerësim Mesatar</div>
+          </div>
+        </div>
+        <a href="kontakt.html" class="btn-primary">Rezervo Aventurën</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testi-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">Çfarë Thonë</span>
+        <h2>Udhëtarët Tanë</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card fade-in">
+          <div class="stars">★★★★★</div>
+          <p>"Absolutisht mahnitës! Sunset cruise ishte eksperienca më e mirë e pushimeve tona. Kapiteni ishte shumë profesional dhe miqësor."</p>
+          <div class="testi-author">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+            <div><strong>Sofia Martini</strong><span>Milano, Itali</span></div>
+          </div>
+        </div>
+        <div class="testi-card fade-in">
+          <div class="stars">★★★★★</div>
+          <p>"Island Hopping me familjen – fëmijët u çmendën! Gjetëm plazhe që nuk i kemi parë askund. Rekomandojmë pa hezitim!"</p>
+          <div class="testi-author">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+            <div><strong>Gëzim Hoxha</strong><span>Tiranë, Shqipëri</span></div>
+          </div>
+        </div>
+        <div class="testi-card fade-in">
+          <div class="stars">★★★★★</div>
+          <p>"Private charter për propozimin tim – perfekt! WaveRider e bëri gjithçka speciale. Faleminderit nga zemra!"</p>
+          <div class="testi-author">
+            <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="">
+            <div><strong>Marco Rossi</strong><span>Roma, Itali</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <img src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?w=1600&q=80" alt="Sea Albania" class="cta-bg">
+    <div class="cta-overlay"></div>
+    <div class="cta-content">
+      <h2>Vendet Mbushen Shpejt!</h2>
+      <p>Maksimumi 12 persona për tur. Rezervoni sot dhe siguroni vendin tuaj me konfirmim të menjëhershëm.</p>
+      <div class="cta-btns">
+        <a href="kontakt.html" class="btn-primary">Rezervo Online</a>
+        <a href="https://wa.me/355697015966?text=Përshëndetje%20WaveRider!%20Dua%20të%20rezervoj%20nje%20tur." class="btn-ghost" target="_blank">📱 WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-grid">
       <div class="footer-brand">
         <div class="logo">⚓ WaveRider</div>
-        <p>Turet më të bukura bregdetare të Shqipërisë.</p>
-        <div class="social-links"><a href="#">📘</a><a href="#">📸</a><a href="#">🎵</a></div>
+        <p>Turet më të bukura bregdetare të Shqipërisë. Aventura fillon në skelë.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="TikTok">🎵</a>
+        </div>
       </div>
       <div class="footer-links">
         <h4>Navigimi</h4>
@@ -227,18 +366,87 @@
         <p>⚓ Skela e Vlorës, Porti Turistik</p>
         <p>📞 +355 69 701 5966</p>
         <p>✉️ info@waverider.al</p>
+        <p style="margin-top:1rem;color:rgba(255,255,255,.5);font-size:.8rem">🕐 Çdo ditë 08:00 – 20:00</p>
       </div>
     </div>
-    <div class="footer-bottom">© 2025 WaveRider Boat Tours.</div>
+    <div class="footer-bottom">© 2025 WaveRider Boat Tours. Të gjitha të drejtat e rezervuara.</div>
   </footer>
 
-  <a href="https://wa.me/355697015966?text=Përshëndetje%20WaveRider!%20Dua%20të%20rezervoj%20nje%20tur."
+  <!-- WHATSAPP -->
+  <a href="https://wa.me/355697015966?text=Përshëndetje%20WaveRider!%20Dua%20të%20rezervoj%20nje%20tur." 
      class="whatsapp-btn" target="_blank" rel="noopener" aria-label="WhatsApp">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="26" height="26"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     <span>WhatsApp</span>
   </a>
 
+  <!-- BOOKING MODAL – scrollable -->
+  <div class="modal-overlay" id="modalOverlay" style="align-items:flex-start;overflow-y:auto;padding:2rem 1rem;">
+    <div class="modal" id="bookModal" style="margin:auto;max-height:none;">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:.4rem">
+        <span style="font-size:2rem">🚢</span>
+        <h3 style="margin:0">Konfirmo Rezervimin</h3>
+      </div>
+      <p style="color:var(--text-mid);font-size:.88rem;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid #f0f4f8">Plotësoni të dhënat – konfirmim i menjëhershëm në WhatsApp.</p>
+      <form class="modal-form" id="modalForm">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem">
+          <div class="form-group">
+            <label>Emri *</label>
+            <input type="text" id="mName" placeholder="Emri juaj" required>
+          </div>
+          <div class="form-group">
+            <label>Mbiemri *</label>
+            <input type="text" id="mLastName" placeholder="Mbiemri">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Numri i Telefonit (WhatsApp) *</label>
+          <input type="tel" id="mPhone" placeholder="+355 6X XXX XXXX" required>
+        </div>
+        <div class="form-group">
+          <label>Lloji i Turit *</label>
+          <select id="mTour" required>
+            <option value="">-- Zgjidhni Turin --</option>
+            <option>🌅 Sunset Cruise (3h) – 3,500 Lekë/person</option>
+            <option>🌊 Full Day Explorer (8h) – 5,500 Lekë/person</option>
+            <option>🏝️ Island Hopping (6h) – 7,500 Lekë/person</option>
+            <option>⭐ Private Charter – 12,000 Lekë/varkë</option>
+          </select>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem">
+          <div class="form-group">
+            <label>Data e Turit *</label>
+            <input type="date" id="mDate" required>
+          </div>
+          <div class="form-group">
+            <label>Numri Personave *</label>
+            <select id="mGuests" required>
+              <option>1 person</option><option selected>2 persona</option><option>3 persona</option>
+              <option>4 persona</option><option>5 persona</option><option>6 persona</option>
+              <option>7-9 persona</option><option>10-12 persona</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Kërkesë Speciale (opsionale)</label>
+          <textarea id="mNote" placeholder="Festë speciale, alergji, fëmijë të vegjël..." style="min-height:80px"></textarea>
+        </div>
+        <!-- Price summary in modal -->
+        <div style="background:#f8fafc;border-radius:10px;padding:1rem;margin-bottom:1rem;font-size:.88rem">
+          <div style="display:flex;justify-content:space-between;color:var(--text-mid);margin-bottom:.3rem"><span>Anulim falas</span><span style="color:var(--teal);font-weight:700">✓ deri 24h para</span></div>
+          <div style="display:flex;justify-content:space-between;color:var(--text-mid)"><span>Pagesa</span><span style="font-weight:700">Vetëm në bord</span></div>
+        </div>
+        <div class="modal-actions">
+          <button type="submit" class="btn-book" style="flex:1">📩 Dërgo në WhatsApp</button>
+          <button type="button" style="padding:.9rem 1.4rem;border-radius:10px;border:2px solid #e0e8f0;background:white;cursor:pointer;font-family:var(--font-body);font-weight:600;color:var(--text-mid)" onclick="document.getElementById('modalOverlay').classList.remove('active');document.body.style.overflow=''">Anulo</button>
+        </div>
+        <div class="success-msg" id="successMsg">✅ Rezervimi u dërgua! Do ju kontaktojmë brenda 1 ore në WhatsApp.</div>
+      </form>
+    </div>
+  </div>
+
   <script>
+    // Set min date to today
     const today = new Date().toISOString().split('T')[0];
     document.querySelectorAll('input[type="date"]').forEach(d => d.min = today);
   </script>
